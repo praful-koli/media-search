@@ -7,7 +7,8 @@ const API_UNSPLASH_URL = "https://api.unsplash.com/search/photos";
 const API_PEXELS_URL = "https://api.pexels.com/videos/search";
 const API_GIPHY_URL = "https://api.giphy.com/v1/gifs/search";
 
-export async function fetchPhotos(query, page = 1, per_page = 20) {
+
+export async function fetchPhotos(query , page = 1, per_page = 20) {
   try {
     const res = await axios.get(API_UNSPLASH_URL, {
       params: { query, page, per_page },
@@ -15,13 +16,14 @@ export async function fetchPhotos(query, page = 1, per_page = 20) {
         Authorization: `Client-ID ${UNSPLASH_KEY}`,
       },
     });
+    console.log();
     return res.data;
   } catch (error) {
     console.log(`Error fetching photos : ${error.res?.data || error.message}`);
   }
 }
 
-export async function fetchVideo(query, per_page = 15) {
+export async function fetchVideo(query , per_page = 20) {
   try {
     const rep = await axios.get(API_PEXELS_URL, {
       params: { query , per_page },
@@ -44,7 +46,7 @@ export async function fetchGif(query) {
       params: {
         q: query,
         api_key: GIPHY_KEY,
-        limit: 10, 
+        limit: 20, 
       },
     });
     
