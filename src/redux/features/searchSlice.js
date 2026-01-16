@@ -43,19 +43,7 @@ export const searchSlice = createSlice ({
         }
     },
     
-    // extraReducers : (builder) =>  {
-    //     builder.addCase(fetchPhoto.pending , (state, action) => {
-    //           state.loading = true
-    //     })
-    //     builder.addCase(fetchPhoto.fulfilled , (state, action) => {
-    //           state.loading = false
-    //           state.results = action.payload;
-    //     })
-    //     builder.addCase(fetchPhoto.rejected , (state, action) => {
-    //           state.error = action.payload
-    //           state.loading = false;
-    //     })
-    // }
+ 
 
 })
 

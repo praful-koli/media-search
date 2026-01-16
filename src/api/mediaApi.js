@@ -7,29 +7,7 @@ const API_UNSPLASH_URL = "https://api.unsplash.com/search/photos";
 const API_PEXELS_URL = "https://api.pexels.com/videos/search";
 const API_GIPHY_URL = "https://api.giphy.com/v1/gifs/search";
 
-// import { createAsyncThunk } from "@reduxjs/toolkit";
 
-// export const fetchPhoto = createAsyncThunk(
-//   "fetachPhotos",
-//   async (query, page = 1, per_page = 20, thunkAPI) => {
-//     try {
-//       const res = await axios.get(API_UNSPLASH_URL, {
-//         params: { query, page, per_page },
-//         headers: {
-//           Authorization: `Client-ID ${UNSPLASH_KEY}`,
-//         },
-//       });
-//       return res.data;
-//     } catch (error) {
-//       console.log(
-//         `Error fetching photos : ${error.res?.data || error.message}`
-//       );
-//       return thunkAPI.rejectWithValue(
-//         `Error fetching photos : ${error.res?.data || error.message}`
-//       );
-//     }
-//   }
-// );
 
 export async function fetchPhotos(query, page = 1, per_page = 20) {
   try {
