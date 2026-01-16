@@ -7,8 +7,31 @@ const API_UNSPLASH_URL = "https://api.unsplash.com/search/photos";
 const API_PEXELS_URL = "https://api.pexels.com/videos/search";
 const API_GIPHY_URL = "https://api.giphy.com/v1/gifs/search";
 
+// import { createAsyncThunk } from "@reduxjs/toolkit";
 
-export async function fetchPhotos(query , page = 1, per_page = 20) {
+// export const fetchPhoto = createAsyncThunk(
+//   "fetachPhotos",
+//   async (query, page = 1, per_page = 20, thunkAPI) => {
+//     try {
+//       const res = await axios.get(API_UNSPLASH_URL, {
+//         params: { query, page, per_page },
+//         headers: {
+//           Authorization: `Client-ID ${UNSPLASH_KEY}`,
+//         },
+//       });
+//       return res.data;
+//     } catch (error) {
+//       console.log(
+//         `Error fetching photos : ${error.res?.data || error.message}`
+//       );
+//       return thunkAPI.rejectWithValue(
+//         `Error fetching photos : ${error.res?.data || error.message}`
+//       );
+//     }
+//   }
+// );
+
+export async function fetchPhotos(query, page = 1, per_page = 20) {
   try {
     const res = await axios.get(API_UNSPLASH_URL, {
       params: { query, page, per_page },
@@ -23,10 +46,10 @@ export async function fetchPhotos(query , page = 1, per_page = 20) {
   }
 }
 
-export async function fetchVideo(query , per_page = 20) {
+export async function fetchVideo(query, per_page = 20) {
   try {
     const rep = await axios.get(API_PEXELS_URL, {
-      params: { query , per_page },
+      params: { query, per_page },
       headers: {
         Authorization: PEXELS_KEY,
       },
@@ -38,18 +61,16 @@ export async function fetchVideo(query , per_page = 20) {
   }
 }
 
-
-
 export async function fetchGif(query) {
   try {
     const rep = await axios.get(API_GIPHY_URL, {
       params: {
         q: query,
         api_key: GIPHY_KEY,
-        limit: 20, 
+        limit: 20,
       },
     });
-    
+
     return rep.data.data;
   } catch (error) {
     console.log(`Error fetching gif: ${error.response?.data || error.message}`);

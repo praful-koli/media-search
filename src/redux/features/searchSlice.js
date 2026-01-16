@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+// import { fetchPhoto } from "../../api/mediaApi";
 
 
 const initialState = {
@@ -23,7 +24,7 @@ export const searchSlice = createSlice ({
         },
         
         setResults : (state , action) => {
-            state.results = action.payload;            
+              state.results = action.payload;            
               state.loading = false
         },
         
@@ -40,7 +41,22 @@ export const searchSlice = createSlice ({
         clearResults : ( state) => {
             state.results = []
         }
-    }
+    },
+    
+    // extraReducers : (builder) =>  {
+    //     builder.addCase(fetchPhoto.pending , (state, action) => {
+    //           state.loading = true
+    //     })
+    //     builder.addCase(fetchPhoto.fulfilled , (state, action) => {
+    //           state.loading = false
+    //           state.results = action.payload;
+    //     })
+    //     builder.addCase(fetchPhoto.rejected , (state, action) => {
+    //           state.error = action.payload
+    //           state.loading = false;
+    //     })
+    // }
+
 })
 
 

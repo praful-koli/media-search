@@ -1,17 +1,15 @@
 export const getCollectionDataLocalStorage = () => {
-  return JSON.parse(localStorage.getItem("collection")) || [];
+  try {
+    return JSON.parse(localStorage.getItem("collection")) || [];
+  } catch {
+    return [];
+  }
 };
 
 export const addCollectionToLocalStorage = (item) => {
   const collection = getCollectionDataLocalStorage();
-
-  if (collection.length < 0) {
-    collection.push(item);
-    localStorage.setItem("collection", JSON.stringify(collection));
-  } else {
-    const newCollection = [...collection, item];
-    localStorage.setItem("collection", JSON.stringify(newCollection));
-  }
+  const newCollection = [...collection, item];
+  localStorage.setItem("collection", JSON.stringify(newCollection));
 };
 
 export const removeAllItemFromLocalStorage = () => {
@@ -21,5 +19,5 @@ export const removeAllItemFromLocalStorage = () => {
 export const removeItemFromLocalStorage = (id) => {
   const collection = getCollectionDataLocalStorage("collection");
   const newCollection = collection.filter((item) => item.id !== id);
-  localStorage.setItem('collection', JSON.stringify(newCollection))
+  localStorage.setItem("collection", JSON.stringify(newCollection));
 };

@@ -48,7 +48,7 @@ function ResultCard({ item , title }) {
       
       <p className="w-4/5 absolute bottom-3 left-3 text-white px-2 text-[16px] py-1 ">
         {item.title}
-      </p>
+      </p >
     </div>
   );
 }

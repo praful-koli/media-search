@@ -5,5 +5,5 @@ export const store = configureStore ({
      reducer : {
       search : serachReducer,
       collection : collectionReducer,
-     }
+     },
 })
