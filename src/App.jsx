@@ -14,7 +14,7 @@ function App() {
             <HomePage/>
           }
         />
-        <Route path="/collection" element={<CollectionPage />} />
+        <Route path="/collection" element={<CollectionPage />}  />
       </Routes>
     </div>
   );
